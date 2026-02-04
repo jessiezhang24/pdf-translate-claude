@@ -275,20 +275,28 @@ async function generatePrompt(selectedText) {
         }
     });
 
-    const prompt = `Please translate the following English text to Chinese.
-Only translate the [SELECTED TEXT] portion, but use the surrounding context to ensure accurate translation.
+    const prompt = `请完成以下两个任务：
 
-=== CONTEXT (for reference only, do NOT translate) ===
+1. **翻译**：将下方的英文原文翻译成中文
+2. **背景解读**：解释这段内容在说什么、为什么重要、有什么深层含义或行业背景
+
+=== 上下文（仅供参考，不需要翻译）===
 ${context.trim()}
 
-=== TEXT TO TRANSLATE ===
+=== 需要翻译的原文 ===
 ${selectedText}
 
-Please provide only the Chinese translation of the selected text above, nothing else.`;
+=== 请按以下格式输出 ===
+
+**翻译：**
+[中文翻译]
+
+**背景解读：**
+[用通俗易懂的语言解释这段内容的含义、背景、意义或影响]`;
 
     try {
         await navigator.clipboard.writeText(prompt);
-        showNotification('Prompt copied to clipboard! Paste it in Claude Web UI.');
+        showNotification('已复制！粘贴到 AI 助手即可翻译');
     } catch (err) {
         // Fallback for older browsers
         const textarea = document.createElement('textarea');
@@ -297,7 +305,7 @@ Please provide only the Chinese translation of the selected text above, nothing 
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        showNotification('Prompt copied to clipboard! Paste it in Claude Web UI.');
+        showNotification('已复制！粘贴到 AI 助手即可翻译');
     }
 }
 

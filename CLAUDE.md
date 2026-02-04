@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Project Overview
 
 A local web tool for PDF reading with two main features:
-1. **Translation prompt generation** - Select text in a PDF to auto-generate a context-aware English→Chinese translation prompt (copied to clipboard for use with Claude Web UI)
+1. **Translation prompt generation** - Select text in a PDF to auto-generate a context-aware prompt that requests both Chinese translation AND background explanation (copied to clipboard for use with any AI assistant like Claude, GPT, etc.)
 2. **Notion annotation** - Select text and add annotations that are saved directly to a Notion page
 
 ## Commands
@@ -45,4 +45,5 @@ python app.py
 - PDF rendering uses PDF.js from CDN (v3.11.174)
 - Text selection context includes current page ± 1 adjacent pages
 - Selected text is auto-formatted into sentences/bullet points when saved to Notion
-- Translation prompts are designed for manual paste into Claude Web UI (no API calls)
+- Translation prompts are in Chinese and request two outputs: **翻译** (translation) and **背景解读** (background explanation of the content's meaning, importance, and context)
+- No API calls - prompts are copied to clipboard for manual paste into any AI assistant

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# Conda
+.conda/
+*.conda
+
+# Mac
+.DS_Store
+
+# Uploads / generated files
+uploads/
+*.pdf
+
+# Secrets / local config
+config.py
+
+# Logs
+*.log

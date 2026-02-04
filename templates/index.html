@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Translator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF Translation Helper</h1>
+            <p>Upload a PDF, select text to generate a translation prompt</p>
+        </header>
+
+        <div class="upload-section">
+            <input type="file" id="pdf-upload" accept=".pdf">
+            <label for="pdf-upload" class="upload-btn">Choose PDF File</label>
+            <span id="filename-display"></span>
+        </div>
+
+        <div id="notification" class="notification hidden"></div>
+
+        <div class="pdf-controls hidden" id="pdf-controls">
+            <button id="prev-page">Previous</button>
+            <span id="page-info">Page 1 of 1</span>
+            <button id="next-page">Next</button>
+        </div>
+
+        <div id="pdf-container" class="pdf-container">
+            <div id="pdf-viewer"></div>
+        </div>
+    </div>
+
+    <!-- Action popup when text is selected -->
+    <div id="action-popup" class="action-popup hidden">
+        <button id="btn-translate">📋 Translate</button>
+        <button id="btn-annotate">📝 Annotate</button>
+    </div>
+
+    <!-- Annotation modal -->
+    <div id="annotation-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Add Annotation</h3>
+            <div class="selected-text-preview" id="selected-text-preview"></div>
+            <textarea id="annotation-input" placeholder="Enter your annotation..."></textarea>
+            <div class="modal-buttons">
+                <button id="btn-cancel">Cancel</button>
+                <button id="btn-save" class="primary">Save to Notion</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
